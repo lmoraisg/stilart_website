@@ -14,7 +14,7 @@ const kategorien = [
   { label: "Gourmet", href: "/produkte/gourmet", img: "/assets/gourmet/gourmet-1.jpg" },
   { label: "Geschirr", href: "/produkte/geschirr", img: "/assets/generell/geschirr-teaser.jpg" },
   { label: "Herren", href: "/produkte/herren", img: "/assets/herren/herren-1.jpg" },
-  { label: "Pralinen", href: "/produkte/pralinen", img: "/assets/pralinen/herz.png" },
+  { label: "Pralinen", href: "/produkte/pralinen", img: "/assets/pralinen/IMG-20251110-WA0035.jpg" },
   { label: "Reisenthel", href: "/produkte/reisenthel", img: "/assets/reisenthel/reisenthel-1.jpg" },
 ];
 
@@ -156,18 +156,22 @@ export default function Startseite() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { img: "/assets/generell/laden3.jpg", label: "Demnächst", title: "Event 1" },
-            { img: "/assets/generell/laden4.jpg", label: "Demnächst", title: "Event 2" },
-            { img: "/assets/gourmet/gourmet-1.jpg", label: "Demnächst", title: "Event 3" },
+            {
+              img: "/assets/generell/laden4.jpg",
+              label: "Jubiläum",
+              title: "1-jähriges Jubiläum",
+              subtitle: "3.–4. Juli 2026 · Wietmarschen",
+              href: "/events/1-jaehriges-jubilaeum",
+            },
           ].map((e, i) => (
-            <Link key={i} href="/events" className="group border border-[var(--border)] overflow-hidden rounded-3xl bg-white shadow-sm transition-smooth transform-gpu hover:-translate-y-1 hover:shadow-xl">
+            <Link key={i} href={e.href} className="group border border-[var(--border)] overflow-hidden rounded-3xl bg-white shadow-sm transition-smooth transform-gpu hover:-translate-y-1 hover:shadow-xl md:max-w-md">
               <div className="relative aspect-[3/2] overflow-hidden">
                 <Image src={e.img} alt={e.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-1" sizes="(max-width: 640px) 100vw, 33vw" />
               </div>
               <div className="p-5 transition-colors duration-300 group-hover:bg-[var(--beige-light)]">
                 <p className="text-xs tracking-widest text-[var(--green)] mb-1">{e.label}</p>
                 <h3 className="font-medium transition-colors duration-300 group-hover:text-[var(--green-dark)]">{e.title}</h3>
-                <p className="text-sm text-[var(--muted)] mt-1">Datum, Ort</p>
+                <p className="text-sm text-[var(--muted)] mt-1">{e.subtitle}</p>
               </div>
             </Link>
           ))}

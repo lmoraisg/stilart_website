@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import MapConsent from "@/components/MapConsent";
 
 type FAQItem = {
@@ -44,33 +43,11 @@ const fragen: FAQItem[] = [
   {
     frage: "Verkaufen Sie auch Gutscheine?",
     antwort: (
-      <div className="flex flex-col gap-4">
-        <p>
-          Ja. Bei uns erhalten Sie entweder den <strong>Grafschaft-Gutschein</strong> oder
-          unseren eigenen <strong>Geschenkgutschein</strong> in beliebiger Höhe – perfekt
-          für Unentschlossene oder Last-Minute-Geschenke.
-        </p>
-        <div className="flex gap-4 flex-wrap">
-          <div className="border border-[var(--border)] p-3 flex items-center justify-center rounded-3xl overflow-hidden" style={{ background: "white" }}>
-            <Image
-              src="/assets/generell/laden1.jpg"
-              alt="Grafschaft Gutschein"
-              width={130}
-              height={60}
-              className="object-contain"
-            />
-          </div>
-          <div className="border border-[var(--border)] p-3 flex items-center justify-center rounded-3xl overflow-hidden" style={{ background: "white" }}>
-            <Image
-              src="/logo-transparent.png"
-              alt="Stil [Art] Gutschein"
-              width={130}
-              height={60}
-              className="object-contain"
-            />
-          </div>
-        </div>
-      </div>
+      <p>
+        Ja. Bei uns erhalten Sie entweder den <strong>Grafschaft-Gutschein</strong> oder
+        unseren eigenen <strong>Geschenkgutschein</strong> in beliebiger Höhe – perfekt
+        für Unentschlossene oder Last-Minute-Geschenke.
+      </p>
     ),
   },
   {

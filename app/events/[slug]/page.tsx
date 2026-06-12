@@ -6,7 +6,7 @@ type Props = { params: Promise<{ slug: string }> };
 const eventData: Record<string, { title: string; datum: string; ort: string; uhrzeit: string; beschreibung: string; highlights: string[] }> = {
   "1-jaehriges-jubilaeum": {
     title: "1-jähriges Jubiläum",
-    datum: "2. Juli 2026 – 3. Juli 2026",
+    datum: "3. Juli 2026 – 4. Juli 2026",
     ort: "Schulstraße 1, 49835 Wietmarschen",
     uhrzeit: "10:00 – 18:00 Uhr",
     beschreibung:
@@ -15,6 +15,7 @@ const eventData: Record<string, { title: string; datum: string; ort: string; uhr
       "Live-Verkostungen ausgewählter Feinkost",
       "Exklusive Jubiläumsangebote",
       "Kleine Geschenke und Überraschungen",
+      "Verlosung mit tollen Preisen",
     ],
   },
 };

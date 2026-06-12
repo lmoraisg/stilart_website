@@ -4,11 +4,7 @@ import { getJobById, jobs } from "../jobData";
 import { notFound } from "next/navigation";
 import JobApplicationModal from "@/components/JobApplicationModal";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
+type Props = { params: Promise<{ id: string }> };
 
 export function generateStaticParams() {
   return jobs.map((job) => ({ id: job.id }));

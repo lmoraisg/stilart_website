@@ -4,15 +4,19 @@ import Link from "next/link";
 
 type KategorieData = {
   name: string;
+  label: string;
   beschreibung: string;
+  intro: string;
   bilder: string[];
+  packageSizes?: { title: string; image: string; detail: string }[];
 };
 
 const kategorienMap: Record<string, KategorieData> = {
   dutz: {
     name: "Dutz",
-    beschreibung:
-      "Hochwertige Gläser und Vasen von Dutz – mundgeblasen, farbenfroh und einzigartig. Jedes Stück ist ein Unikat, das Ihr Zuhause mit Farbe und Stil bereichert.",
+    label: "Glaskunst",
+    beschreibung: "Hochwertige Gläser und Vasen von Dutz – mundgeblasen, farbenfroh und einzigartig. Jedes Stück ist ein Unikat, das Ihr Zuhause mit Farbe und Stil bereichert.",
+    intro: "Farbintensive Glasobjekte mit Charakter – handgeblasen, lebendig, unverwechselbar.",
     bilder: [
       "/assets/dutz/dutz-1.jpg",
       "/assets/dutz/dutz-2.jpg",
@@ -24,8 +28,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   raeder: {
     name: "Räder",
-    beschreibung:
-      "Räder Design steht für poetische Alltagsbegleiter – von Kerzenhaltern über Vasen bis hin zu kreativen Geschenkideen mit Herz.",
+    label: "Design",
+    beschreibung: "Räder Design steht für poetische Alltagsbegleiter – von Kerzenhaltern über Vasen bis hin zu kreativen Geschenkideen mit Herz.",
+    intro: "Design, das berührt – für den Alltag mit Seele.",
     bilder: [
       "/assets/raeder/raeder-1.jpg",
       "/assets/raeder/raeder-2.jpg",
@@ -37,8 +42,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   handtuecher: {
     name: "Handtücher",
-    beschreibung:
-      "Hochwertige Handtücher für Bad und Küche – weich, saugstark und in schönen Farben erhältlich.",
+    label: "Textil",
+    beschreibung: "Hochwertige Handtücher für Bad und Küche – weich, saugstark und in schönen Farben erhältlich.",
+    intro: "Weiche Qualität, schöne Farben – für Ihren Alltag.",
     bilder: [
       "/assets/handtuecher/handtuch-1.jpg",
       "/assets/handtuecher/handtuch-2.jpg",
@@ -50,8 +56,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   kinderartikel: {
     name: "Kinderartikel",
-    beschreibung:
-      "Schöne und sichere Artikel für Kinder – von dekorativen Accessoires bis zu liebevollen Geschenkideen für die Kleinen.",
+    label: "Kinder",
+    beschreibung: "Schöne und sichere Artikel für Kinder – von dekorativen Accessoires bis zu liebevollen Geschenkideen für die Kleinen.",
+    intro: "Liebevoll ausgewählt – für die kleinen Menschen im Leben.",
     bilder: [
       "/assets/kinder/kinder-1.jpg",
       "/assets/kinder/kinder-2.jpg",
@@ -63,8 +70,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   accessoires: {
     name: "Accessoires",
-    beschreibung:
-      "Stilvolle Accessoires für jeden Anlass – durchdacht ausgewählt, liebevoll präsentiert.",
+    label: "Stil",
+    beschreibung: "Stilvolle Accessoires für jeden Anlass – durchdacht ausgewählt, liebevoll präsentiert.",
+    intro: "Der richtige Akzent für jeden Moment.",
     bilder: [
       "/assets/accessoires/accessoire-1.jpg",
       "/assets/accessoires/accessoire-2.jpg",
@@ -76,8 +84,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   gourmet: {
     name: "Gourmet",
-    beschreibung:
-      "Ausgewählte Feinkost und kulinarische Köstlichkeiten – perfekt als Mitbringsel oder für Genussmomente zuhause.",
+    label: "Feinkost",
+    beschreibung: "Ausgewählte Feinkost und kulinarische Köstlichkeiten – perfekt als Mitbringsel oder für Genussmomente zuhause.",
+    intro: "Kulinarische Entdeckungen für echte Genießer.",
     bilder: [
       "/assets/gourmet/gourmet-1.jpg",
       "/assets/gourmet/gourmet-2.jpg",
@@ -89,8 +98,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   geschirr: {
     name: "Geschirr",
-    beschreibung:
-      "Edles Geschirr für den schön gedeckten Tisch – Teller, Schalen, Tassen und mehr in ausgesuchter Qualität.",
+    label: "Tafelkultur",
+    beschreibung: "Edles Geschirr für den schön gedeckten Tisch – Teller, Schalen, Tassen und mehr in ausgesuchter Qualität.",
+    intro: "Tischkultur, die Eindruck hinterlässt.",
     bilder: [
       "/assets/geschirr/geschirr-1.jpg",
       "/assets/geschirr/geschirr-2.jpg",
@@ -102,8 +112,9 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   herren: {
     name: "Herren",
-    beschreibung:
-      "Ausgewählte Artikel und besondere Geschenkideen speziell für den Herrn.",
+    label: "Geschenke",
+    beschreibung: "Ausgewählte Artikel und besondere Geschenkideen speziell für den Herrn.",
+    intro: "Besondere Ideen für besondere Männer.",
     bilder: [
       "/assets/herren/herren-1.jpg",
       "/assets/herren/herren-2.jpg",
@@ -115,12 +126,12 @@ const kategorienMap: Record<string, KategorieData> = {
   },
   pralinen: {
     name: "Pralinen",
-    beschreibung:
-      "Handgefertigte Pralinen und feine Schokoladenspezialitäten – das süße Highlight für jeden Anlass.",
+    label: "Handgemacht",
+    beschreibung: "Handgefertigte Pralinen und feine Schokoladenspezialitäten – das süße Highlight für jeden Anlass.",
+    intro: "Schokolade als Kunstform – für den perfekten Moment.",
     bilder: [
       "/assets/pralinen/herz.png",
       "/assets/pralinen/kir-royal.png",
-      "/assets/pralinen/ali-baba.png",
       "/assets/pralinen/waldfee.png",
       "/assets/pralinen/largueta.png",
       "/assets/pralinen/bienenstich.png",
@@ -129,11 +140,29 @@ const kategorienMap: Record<string, KategorieData> = {
       "/assets/pralinen/tiramisu.png",
       "/assets/pralinen/walnuss.png",
     ],
+    packageSizes: [
+      {
+        title: "Klein",
+        image: "/assets/pralinen/klein.jpg",
+        detail: "Kleine Auswahl – ideal als süßes Geschenk oder für den Genuss zwischendurch.",
+      },
+      {
+        title: "Mittel",
+        image: "/assets/pralinen/mittel.jpg",
+        detail: "Mittlere Packung – perfekt für Familien und Gäste.",
+      },
+      {
+        title: "Groß",
+        image: "/assets/pralinen/groß.jpg",
+        detail: "Großes Paket – für besondere Anlässe und größere Freude.",
+      },
+    ],
   },
   reisenthel: {
     name: "Reisenthel",
-    beschreibung:
-      "Praktische und stylische Einkaufs- und Transporttaschen von Reisenthel – funktional, farbenfroh und nachhaltig.",
+    label: "Taschen",
+    beschreibung: "Praktische und stylische Einkaufs- und Transporttaschen von Reisenthel – funktional, farbenfroh und nachhaltig.",
+    intro: "Farbe im Alltag – Taschen die man liebt.",
     bilder: [
       "/assets/reisenthel/reisenthel-1.jpg",
       "/assets/reisenthel/reisenthel-2.jpg",
@@ -158,68 +187,152 @@ export default async function ProduktKategorie({ params }: Props) {
   const { slug } = await params;
   const k = kategorienMap[slug] ?? {
     name: slug.charAt(0).toUpperCase() + slug.slice(1),
+    label: "Kategorie",
     beschreibung: "",
+    intro: "",
     bilder: [],
   };
 
+  const heroImage = k.bilder[0];
+  const galleryImages = k.bilder.slice(1);
+
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      {/* Breadcrumb */}
-      <nav className="text-xs tracking-widest text-[var(--muted)] mb-10 flex gap-2">
-        <Link href="/produkte" className="hover:text-[var(--green-dark)] transition-colors">
-          PRODUKTE
-        </Link>
-        <span>/</span>
-        <span className="text-[var(--green-dark)]">{k.name.toUpperCase()}</span>
-      </nav>
-
-      {/* Header */}
-      <div className="mb-12 border-b border-[var(--border)] pb-8">
-        <p className="text-xs tracking-widest text-[var(--green)] mb-2 uppercase">Kategorie</p>
-        <h1 className="text-4xl font-light">{k.name}</h1>
-        <p className="mt-4 text-[var(--muted)] max-w-xl leading-relaxed">{k.beschreibung}</p>
-      </div>
-
-      {/* Bilder-Grid */}
-      {k.bilder.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {k.bilder.map((src, i) => (
-            <div key={i} className="relative aspect-square overflow-hidden group rounded-3xl shadow-sm">
-              <Image
-                src={src}
-                alt={`${k.name} ${i + 1}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+    <div>
+      {/* Full-bleed hero */}
+      {heroImage && (
+        <div className="relative h-[55vh] min-h-[380px] overflow-hidden">
+          <Image
+            src={heroImage}
+            alt={k.name}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-12 px-8 md:px-16 max-w-7xl mx-auto">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-white/60 text-xs tracking-widest uppercase mb-4">
+              <Link href="/produkte" className="hover:text-white transition-colors">Produkte</Link>
+              <span>/</span>
+              <span className="text-white">{k.name}</span>
+            </nav>
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-[10px] tracking-[0.4em] uppercase text-white/80 mb-4 w-fit">
+              {k.label}
             </div>
-          ))}
-        </div>
-      ) : (
-        <div
-          className="aspect-[3/1] flex items-center justify-center border border-[var(--border)] rounded-3xl overflow-hidden"
-          style={{ background: "var(--beige-light)" }}
-        >
-          <span className="text-xs tracking-widest text-[var(--muted)]">BILDER FOLGEN</span>
+            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-none">
+              {k.name}
+            </h1>
+            {k.intro && (
+              <p className="mt-4 text-white/70 text-lg max-w-xl leading-relaxed">{k.intro}</p>
+            )}
+          </div>
         </div>
       )}
 
-      {/* CTA */}
-      <div
-        className="mt-16 p-8 text-center border border-[var(--border)] rounded-3xl"
-        style={{ background: "var(--beige-light)" }}
-      >
-        <p className="text-xs tracking-widest text-[var(--green)] mb-2 uppercase">Interesse?</p>
-        <h2 className="text-2xl font-light mb-4">Besuchen Sie uns in Wietmarschen</h2>
-        <p className="text-sm text-[var(--muted)] mb-6">
-          Alle Produkte sind persönlich in unserem Geschäft erhältlich. Schulstraße 1, 49835 Wietmarschen.
-        </p>
-        <Link
-          href="/kontakt"
-          className="inline-block bg-[var(--green-dark)] text-white text-xs tracking-widest px-8 py-4 rounded-full hover:bg-[var(--green)] transition-colors"
-        >
-          KONTAKT AUFNEHMEN
-        </Link>
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Description strip */}
+        <div className="mb-14 flex flex-col md:flex-row gap-8 md:items-start md:justify-between border-b border-[var(--border)] pb-10">
+          <p className="text-[var(--muted)] max-w-2xl leading-relaxed text-base">{k.beschreibung}</p>
+          <Link
+            href="/kontakt"
+            className="shrink-0 self-start text-xs tracking-widest border border-[var(--green)] text-[var(--green)] px-6 py-3 rounded-full hover:bg-[var(--green)] hover:text-white transition-colors"
+          >
+            IM LADEN ANSEHEN
+          </Link>
+        </div>
+
+        {/* Photo grid — staggered sizes */}
+        {galleryImages.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[220px]">
+            {galleryImages.map((src, i) => {
+              const isFeatured = i === 0 || i === 4;
+              return (
+                <div
+                  key={i}
+                  className={`relative overflow-hidden rounded-[1.5rem] group shadow-sm ${
+                    isFeatured ? "col-span-2 row-span-2" : ""
+                  }`}
+                >
+                  <Image
+                    src={src}
+                    alt={`${k.name} ${i + 2}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes={isFeatured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 640px) 50vw, 25vw"}
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[1.5rem]" />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="aspect-[3/1] flex items-center justify-center border border-[var(--border)] rounded-[2rem] bg-[var(--beige-light)]">
+            <span className="text-xs tracking-widest text-[var(--muted)] uppercase">Bilder folgen</span>
+          </div>
+        )}
+
+        {/* Pralinen package sizes */}
+        {slug === "pralinen" && k.packageSizes && (
+          <section className="mt-20">
+            <div className="mb-10 flex items-end justify-between flex-wrap gap-4">
+              <div>
+                <p className="text-xs tracking-[0.4em] uppercase text-[var(--green)] mb-2">Packungsgrößen</p>
+                <h2 className="text-4xl font-black tracking-tight">Klein, Mittel, Groß</h2>
+              </div>
+              <p className="text-[var(--muted)] max-w-sm text-sm leading-relaxed">
+                Das perfekte Päckchen für jeden Anlass – vom kleinen Dankeschön bis zur großen Freude.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {k.packageSizes.map((item) => (
+                <div key={item.title} className="group relative rounded-[2rem] overflow-hidden shadow-sm aspect-[4/3]">
+                  <Image
+                    src={item.image}
+                    alt={`Pralinenpaket ${item.title}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-white/70 text-sm mt-1 leading-snug">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* CTA */}
+        <div className="mt-20 relative overflow-hidden rounded-[2rem] bg-[var(--green-dark)] p-10 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/5" />
+          <div className="absolute -left-8 -bottom-12 w-48 h-48 rounded-full bg-white/5" />
+          <div className="relative">
+            <p className="text-xs tracking-[0.4em] uppercase text-white/60 mb-3">Interesse geweckt?</p>
+            <h2 className="text-3xl md:text-4xl font-black leading-tight">
+              Besuchen Sie uns<br />in Wietmarschen.
+            </h2>
+            <p className="mt-3 text-white/70 leading-relaxed max-w-md">
+              Alle Produkte sind persönlich in unserem Geschäft erhältlich. Schulstraße 1, 49835 Wietmarschen.
+            </p>
+          </div>
+          <div className="relative flex flex-col sm:flex-row gap-3 shrink-0">
+            <Link
+              href="/kontakt"
+              className="bg-white text-[var(--green-dark)] text-xs tracking-widest px-8 py-4 rounded-full hover:bg-[var(--beige-light)] transition-colors font-semibold text-center"
+            >
+              KONTAKT
+            </Link>
+            <Link
+              href="/produkte"
+              className="border border-white/40 text-white text-xs tracking-widest px-8 py-4 rounded-full hover:border-white/80 transition-colors text-center"
+            >
+              ALLE PRODUKTE
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

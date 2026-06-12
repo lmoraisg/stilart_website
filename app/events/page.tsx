@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Unser 1-jähriges Jubiläum am 2. und 3. Juli mit Überraschungen, Verkostungen und Rabatten.",
+  description: "Unser 1-jähriges Jubiläum am 3. und 4. Juli mit Überraschungen, Verkostungen und Rabatten.",
 };
 
 const event = {
   slug: "1-jaehriges-jubilaeum",
   titel: "1-jähriges Jubiläum",
-  datum: "2.–3. Juli 2026",
+  datum: "3.–4. Juli 2026",
   ort: "Schulstraße 1, Wietmarschen",
   beschreibung:
     "Erlebe zwei Tage voller Überraschungen, Verkostungen und Rabatte. Wir feiern unser erstes Jahr mit besonderen Aktionen im Laden und laden dich herzlich ein, mit uns zu stöbern, zu probieren und zu genießen.",
@@ -22,7 +22,7 @@ export default function EventsSeite() {
         <p className="text-xs tracking-widest text-[var(--green)] mb-2 uppercase">Events</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Unser nächstes Event</h1>
         <p className="mt-4 max-w-3xl text-[var(--muted)] leading-relaxed">
-          Das Highlight ist unser 1-jähriges Jubiläum am 2. und 3. Juli. Aktuell sind keine weiteren Events geplant – so können wir dieses Wochenende besonders schön vorbereiten.
+          Das Highlight ist unser 1-jähriges Jubiläum am 3. und 4. Juli. Aktuell sind keine weiteren Events geplant – so können wir dieses Wochenende besonders schön vorbereiten.
         </p>
       </div>
 
@@ -51,10 +51,10 @@ export default function EventsSeite() {
               </div>
               <div className="rounded-3xl border border-[var(--border)] bg-[var(--beige-light)] p-5">
                 <p className="text-xs uppercase tracking-[0.35em] text-[var(--green)] mb-2">Specials</p>
-                <p className="font-semibold">Überraschungen</p>
+                <p className="font-semibold">Überraschungen & Verlosung</p>
               </div>
             </div>
-            <p className="mt-8 text-[var(--muted)] leading-relaxed">{event.beschreibung}</p>
+            <p className="mt-8 text-[var(--muted)] leading-relaxed">{event.beschreibung} Es gibt außerdem eine attraktive Verlosung für alle Besucher:innen.</p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href={`/events/${event.slug}`}
