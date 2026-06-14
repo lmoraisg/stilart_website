@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import GourmetRecipeTabs from "@/components/GourmetRecipeTabs";
 
 type KategorieData = {
   name: string;
@@ -9,6 +10,7 @@ type KategorieData = {
   intro: string;
   bilder: string[];
   packageSizes?: { title: string; image: string; detail: string }[];
+  rezepte?: { title: string; image: string; excerpt: string; ingredients: string[]; steps: string[] }[];
 };
 
 const kategorienMap: Record<string, KategorieData> = {
@@ -94,6 +96,98 @@ const kategorienMap: Record<string, KategorieData> = {
       "/assets/gourmet/gourmet-4.jpg",
       "/assets/gourmet/gourmet-5.jpg",
       "/assets/gourmet/gourmet-6.jpg",
+    ],
+    rezepte: [
+      {
+        title: "Blätterteig-Spinat-Tarte",
+        image: "/assets/gourmet/blätterteig.jpg",
+        excerpt: "Knusprig, herzhaft und blitzschnell gemacht – perfekt als Snack oder leichtes Mittagessen.",
+        ingredients: [
+          "1 Packung Blätterteig",
+          "250 g frischer Spinat",
+          "1 rote Zwiebel",
+          "2 Knoblauchzehen",
+          "150 g Feta",
+          "2 Eier",
+          "150 ml Sahne",
+          "Muskatnuss, Salz, Pfeffer",
+        ],
+        steps: [
+          "Backofen auf 200 °C vorheizen und eine Tarteform mit Blätterteig auslegen.",
+          "Zwiebel und Knoblauch fein hacken und kurz in etwas Öl andünsten.",
+          "Spinat hinzufügen, zusammenfallen lassen und mit Salz, Pfeffer und Muskat würzen.",
+          "Feta zerbröseln und mit Eiern sowie Sahne verrühren.",
+          "Spinatmischung unterheben, in die Form geben und die Tarte 25–30 Minuten backen.",
+          "Kurz abkühlen lassen und dann in Stücke schneiden.",
+        ],
+      },
+      {
+        title: "Cremiger Cheesecake",
+        image: "/assets/gourmet/cheesecake.jpg",
+        excerpt: "Saftig, zart und unkompliziert – dieser Cheesecake gelingt garantiert.",
+        ingredients: [
+          "200 g Butterkekse",
+          "100 g Butter",
+          "600 g Frischkäse",
+          "150 g Zucker",
+          "3 Eier",
+          "200 g Schmand",
+          "1 TL Vanilleextrakt",
+          "Abrieb einer Zitrone",
+        ],
+        steps: [
+          "Kekse zerbröseln und mit geschmolzener Butter vermischen.",
+          "Die Masse in eine Springform drücken und kaltstellen.",
+          "Frischkäse mit Zucker, Eiern, Schmand, Vanille und Zitronenabrieb glatt rühren.",
+          "Die Füllung auf den Boden geben und bei 160 °C etwa 45 Minuten backen.",
+          "Ofen ausschalten, Kuchen leicht abkühlen lassen und vor dem Servieren vollständig kühlen.",
+        ],
+      },
+      {
+        title: "Frischer Sommersalat",
+        image: "/assets/gourmet/salat.jpg",
+        excerpt: "Bunt, knackig und voller Aromen – ein Salat, den Gäste lieben.",
+        ingredients: [
+          "200 g gemischte Blattsalate",
+          "150 g Cherrytomaten",
+          "1/2 Gurke",
+          "1 Avocado",
+          "100 g Feta",
+          "1 Handvoll Kräuter",
+          "3 EL Olivenöl",
+          "1 EL Zitronensaft",
+          "1 TL Honig",
+        ],
+        steps: [
+          "Salate waschen und trocken schleudern.",
+          "Tomaten halbieren, Gurke würfeln und Avocado in Scheiben schneiden.",
+          "Feta zerbröseln und Kräuter fein hacken.",
+          "Öl, Zitronensaft und Honig zu einem Dressing verrühren.",
+          "Alles in einer Schüssel mischen und mit dem Dressing anrichten.",
+        ],
+      },
+      {
+        title: "Wärmende Herbstsuppe",
+        image: "/assets/gourmet/suppe.jpg",
+        excerpt: "Ein einfaches Rezept für gemütliche Abende mit viel Geschmack.",
+        ingredients: [
+          "500 g Kürbis oder Hokkaido",
+          "1 Zwiebel",
+          "2 Knoblauchzehen",
+          "700 ml Gemüsebrühe",
+          "150 ml Sahne",
+          "1 TL Currypulver",
+          "Salz, Pfeffer",
+          "Kürbiskerne zum Garnieren",
+        ],
+        steps: [
+          "Zwiebel und Knoblauch fein hacken und in etwas Öl andünsten.",
+          "Kürbiswürfel hinzufügen und kurz mitbraten.",
+          "Brühe zugießen und alles etwa 20 Minuten weich kochen.",
+          "Die Suppe pürieren, Sahne einrühren und mit Currypulver, Salz und Pfeffer abschmecken.",
+          "Mit gerösteten Kürbiskernen servieren.",
+        ],
+      },
     ],
   },
   geschirr: {
@@ -304,6 +398,8 @@ export default async function ProduktKategorie({ params }: Props) {
             </div>
           </section>
         )}
+
+        {slug === "gourmet" && k.rezepte && <GourmetRecipeTabs rezepte={k.rezepte} />}
 
         {/* CTA */}
         <div className="mt-20 relative overflow-hidden rounded-[2rem] bg-[var(--green-dark)] p-10 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8">

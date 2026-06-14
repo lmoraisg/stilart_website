@@ -129,7 +129,7 @@ export default function EinrichtungClient() {
             <h2 className="text-2xl font-semibold mb-4">Video: So entsteht eine Einrichtung</h2>
             <div className="overflow-hidden rounded-3xl bg-black">
               <video controls poster="/assets/einrichtung/einrichtung-1.jpg" className="h-full w-full object-cover">
-                <source src="/assets/einrichtung/einrichtung-video.mp4" type="video/mp4" />
+                <source src="/assets/einrichtung/einrichtung2.mp4" type="video/mp4" />
                 Ihr Browser unterstützt dieses Videoformat nicht.
               </video>
             </div>

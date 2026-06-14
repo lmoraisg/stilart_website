@@ -17,13 +17,13 @@ const team = [
     name: "Nicole",
     titel: "Dekoration & Ladenstyling",
     rolle: "Mitarbeiterin im Laden für Deko, Shop-Inszenierung und stilvolle Produktpräsentation.",
-    img: "/assets/team/nicole.png",
+    img: "/assets/team/nicole.jpg",
   },
   {
     name: "Lara",
     titel: "Social Media & IT",
     rolle: "Verantwortlich für Social Media, Online-Auftritt und digitale Kommunikation.",
-    img: "/assets/team/lara.png",
+    img: "/assets/team/lara.jpg",
   },
 ];
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto" style={{ background: "#5c3d2e", color: "#f0e6d8" }}>
+    <footer className="mt-auto" style={{ background: "#6b4a3a", color: "#f0e6d8" }}>
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Logo + Slogan */}
@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div
           className="mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs"
-          style={{ borderTop: "1px solid #7a5240", color: "#a87e6a" }}
+          style={{ borderTop: "1px solid #8a5f50", color: "#b58a76" }}
         >
           <p>© {new Date().getFullYear()} Stil [Art] – Alle Rechte vorbehalten.</p>
           <div className="flex gap-6">
